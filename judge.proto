@@ -1,0 +1,23 @@
+syntax = "proto3";
+package pb_gen;
+
+message JudgeRequest {
+    string SourceCode = 1;
+    string Language = 2;
+    float MemoryLimit = 3;
+    float TimeLimit = 4;
+    string CallBackUrl = 5;
+    string ProblemId = 6;
+    string SubmitId = 7;
+}
+
+message JudgeResponse {
+    int32 ResCode = 1;
+    string CompileInfo = 2;
+    float Time = 3;
+    float Memory = 4;
+}
+
+service JudgeService {
+    rpc Judge(JudgeRequest) returns (JudgeResponse) {}
+}
