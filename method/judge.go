@@ -24,7 +24,7 @@ func constructJudgeRequest(c *gin.Context) (*pb_gen.JudgeRequest, error) {
 		log.Printf("read sourcecode failed: %v", err)
 		return nil, err
 	}
-	log.Printf("read %d sourcecode", n)
+	//log.Printf("read %d sourcecode", n)
 	code = code[0:n]
 	req.SourceCode = string(code)
 	//log.Println(req.SourceCode)
@@ -32,7 +32,7 @@ func constructJudgeRequest(c *gin.Context) (*pb_gen.JudgeRequest, error) {
 		log.Printf("scanf sourcecode failed: %v", err)
 		return nil, err
 	}
-	log.Println(req.SourceCode)
+	//log.Println(req.SourceCode)
 
 	req.ProblemId = c.PostForm("problem_id")
 	req.SubmitId = c.PostForm("submit_id")
@@ -50,8 +50,8 @@ func constructJudgeRequest(c *gin.Context) (*pb_gen.JudgeRequest, error) {
 	req.TimeLimit = float32(tl)
 	req.Language = c.PostForm("language")
 	req.CallBackUrl = c.PostForm("callback_url")
-	log.Printf("comming a request %v", req)
-	log.Println("source_code", req.SourceCode)
+	log.Printf("comming a request ")
+	//log.Println("source_code", req.SourceCode)
 	return &req, nil
 }
 
